@@ -21,15 +21,9 @@ pip install torch matplotlib numpy pillow
 ```bash
 # Установка TorchKAN
 git clone https://github.com/1ssb/torchkan.git
-cd torchkan
-pip install -r requirements.txt
-cd ..
 
 # Установка Efficient-KAN
 git clone https://github.com/Blealtan/efficient-kan.git
-cd efficient-kan
-pip install -e .
-cd ..
 ```
 
 ## Структура проекта

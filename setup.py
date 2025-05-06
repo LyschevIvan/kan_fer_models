@@ -28,7 +28,7 @@ setup(
         "matplotlib>=3.3.0",
         "numpy>=1.19.0",
         "efficient-kan @ git+https://github.com/Blealtan/efficient-kan.git",
-        "torchkan @ git+https://github.com/Blealtan/torchkan.git",
+        "torchkan @ git+https://github.com/1ssb/torchkan.git",
     ],
     include_package_data=True,
     package_data={

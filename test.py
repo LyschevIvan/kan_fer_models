@@ -46,9 +46,11 @@ def main():
     # Создание графика
     fig, axes = plt.subplots(2, 3, figsize=(15, 10))
     axes = axes.flatten()
-    
-    # Показываем изображение
-    axes[0].imshow(img)
+
+    if img.mode == 'L':
+        axes[0].imshow(np.array(img), cmap='gray')
+    else:
+        axes[0].imshow(img)
     axes[0].set_title("Исходное изображение")
     axes[0].axis("off")
     

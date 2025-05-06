@@ -45,7 +45,9 @@ class EmotionModelBase(torch.nn.Module):
     
     def preprocess(self, image):
         if isinstance(image, str):
-            image = Image.open(image).convert('RGB')
+            image = Image.open(image)
+        if image.mode != 'RGB':
+            image = image.convert('RGB')
             
         return self.transform(image).unsqueeze(0).to(self.device)
     

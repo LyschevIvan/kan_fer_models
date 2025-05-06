@@ -2,7 +2,10 @@ import torch
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
-from src.models import KANFER2013, KANRAFDB, KALFER2013, KALRAFDB
+
+# Импортируем из пакета kan_fer вместо src.models
+
+from kan_fer import KANFER2013, KANRAFDB, KALFER2013, KALRAFDB
 
 def test_with_model(model, img, ax, title):
     """Тестирование модели и вывод результатов"""

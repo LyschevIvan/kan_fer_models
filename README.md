@@ -8,27 +8,54 @@
 - FER2013
 - RAF-DB
 
-## Требования
+## Установка
 
-Для работы с этим проектом необходимо установить следующие зависимости:
+### Вариант 1: Установка как библиотеки
+
+Вы можете установить этот проект как Python-пакет:
 
 ```bash
-pip install torch matplotlib numpy pillow
+# Установка напрямую из репозитория (рекомендуется)
+pip install git+https://github.com/LyschevIvan/kan_fer_models.git
+
+# ИЛИ установка локально
+git clone https://github.com/LyschevIvan/kan_fer_models.git
+cd kan_fer_models
+pip install -e .
 ```
 
-Также необходимо установить библиотеки, реализующие KAN архитектуры:
+После установки вы можете импортировать и использовать модели так:
+
+```python
+from kan_fer import KANFER2013, KANRAFDB, KALFER2013, KALRAFDB
+```
+
+### Вариант 2: Использование как отдельного проекта
 
 ```bash
-# Установка TorchKAN
+# Установка зависимостей
+pip install torch torchvision matplotlib numpy pillow
+
+# Клонирование репозитория
+git clone https://github.com/LyschevIvan/kan_fer_models.git
+cd kan_fer_models
+
+# Установка efficient-kan зависимости
+python -m pip install git+https://github.com/Blealtan/efficient-kan.git
+
+# Установка torchkan
 git clone https://github.com/1ssb/torchkan.git
 
-# Установка Efficient-KAN
-git clone https://github.com/Blealtan/efficient-kan.git
+# Установка проекта локально
+pip install -e .
 ```
 
 ## Структура проекта
 
-- `src/models/` - содержит реализации моделей KANFER2013, KANRAFDB, KALFER2013, KALRAFDB
+- `kan_fer/` - пакет библиотеки
+  - `models.py` - содержит реализации моделей
+  - `pretrained/` - предобученные модели
+- `src/` - исходный код (для прямого использования)
 - `test.py` - скрипт для тестирования моделей на изображении
 
 ## Использование
@@ -36,7 +63,7 @@ git clone https://github.com/Blealtan/efficient-kan.git
 Проект позволяет распознавать эмоции на изображениях лиц с помощью различных моделей:
 
 ```python
-from src.models import KANFER2013, KANRAFDB, KALFER2013, KALRAFDB
+from kan_fer import KANFER2013, KANRAFDB, KALFER2013, KALRAFDB
 from PIL import Image
 
 # Загрузка изображения
